@@ -4,9 +4,9 @@
       <p class="flash"><%= flash[:notice] %></p>
     <% end %>
   <% @fashions.each do |f| %>
-    <%= link_to article_path(f),class:"link_path" do %> 
+    <%= link_to fashion_path(f),class:"link_path" do %> 
       <div class="article_name"><%= f.name %><br></div>
-      <div class="article_image"><%= image_tag(f.image) if f.image.attached? %><br></div>
+      <div class="article_image"><%= image_tag 'araki_yuko.jpg' %><br></div>
       <div class="article_content">
         <div class="article_content_name">Tops</div>
         <%= f.tops %><br>
@@ -25,9 +25,9 @@
   <% end %>
   
   <div class="post_btn">
-
+    <%= link_to new_fashion_path,class:"link_path" do %> 
     <%= image_tag '鉛筆ボタン.png' %>
-
+    <% end %>
   </div>
   <% else %>
    <h1>Log inしてください</h1>
