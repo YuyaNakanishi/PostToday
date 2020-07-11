@@ -1,0 +1,42 @@
+.article {
+  padding: 20px 0;
+
+  &_name{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  &_image img{
+    padding-bottom: 5px;
+    border-radius: 50px;
+    border: none;
+    height: auto;
+    width: 360px;
+  }
+
+  &_content {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 15px;
+     
+    &_name {
+      font-size: 15px;
+      padding-top: 8px;
+      background:linear-gradient(transparent 70%, #FFFF00 0%);
+      width: 100px;
+    }
+  }
+}
+
+.dot {
+  padding: 10px 20px 5px 0;
+}
+
+.card_line {
+  height: 1px;
+  background: black;
+  opacity: 0.5;
+  margin: 15px 0;
+}
