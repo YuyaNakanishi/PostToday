@@ -1,0 +1,33 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <p class="flash"><%= flash[:notice] %></p>
+  <% end %>
+  <div class="article">
+    <div class="article_name"><%= @name %><br></div>
+    <div class="article_image"><%= image_tag 'araki_yuko.jpg' %><br></div>
+    <div class="article_content">
+  <div class="dropdown">  
+    <%= image_tag 'dot.png' ,class:"dot" %>
+    <div class="dropdown_content">
+      <%= link_to "Edit", edit_fashion_path(params[:id]) %>
+      <%= link_to "delete", fashion_path(params[:id]), data: {method: 'delete', confirm:"本当に削除しても良いですか？"} %>
+    </div>
+   </div>     
+       <div class="article_content_name">Tops</div>
+      <%= @tops %><br>
+      <div class="article_content_name">Pants</div>
+      <%= @pants %><br>
+      <div class="article_content_name">Shoes</div>
+      <%= @shoes %><br>
+      <div class="article_content_name">Other</div>
+      <%= @other %><br>
+      <div class="article_content_name">Description</div>
+      <%= @description %><br>
+      <div class="line"></div>
+    </div>  
+  </div>
+
+  <h2>コメント機能実装予定</h2>
+
+  
+</div>
