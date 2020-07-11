@@ -1,0 +1,37 @@
+<div class="container">
+  <%= form_with(model:@profile ,url: profile_path ,method: 'put' ,local: true) do |f| %>
+    <%# image %>
+    <div>
+      <%= f.label :avatar, 'avatar', class:"label" %>
+    </div>
+    <div class="field">
+      <%= f.file_field :avatar %>
+    </div>
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+
+    <%# 名前 %>
+    <div>
+      <%= f.label :nickname, 'NickName', class:"label" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :nickname ,class: "text" %>
+    </div>
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+
+    <%# 自己紹介欄 %>
+    <div>
+      <%= f.label :introduction, '紹介文', class:"label" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_area :introduction ,class: "text" %>
+    </div>
+
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+  <%# Submit %>
+    <div>
+      <%= f.submit '保存', class: "btn" %>
+    </div>
+<%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+  <% end %>
+</div>

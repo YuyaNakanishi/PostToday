@@ -13,9 +13,13 @@
   <% if user_signed_in? %>
     <div class="dropdown">  
       <div class="avatar">
+      <% if current_user.profile&.avatar&.attached? %>      
+        <%= image_tag(@profile.avatar) if @profile.avatar.attached? %>
+      <% else %>  
         <%= image_tag 'avatar.png' ,:size => '50x50' %>
+      <% end %>  
       <div class="dropdown_content">
-
+        <%= link_to "Profile", profile_path %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </div>
       </div>  

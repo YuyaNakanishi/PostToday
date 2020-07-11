@@ -1,4 +1,6 @@
 class FashionsController < ApplicationController
+  before_action :profile 
+
   def index
     @fashions = Fashion.all
   end
@@ -57,6 +59,12 @@ class FashionsController < ApplicationController
       :other,
       :description,
       :image)
+  end
+
+  def profile
+    if user_signed_in?
+      @profile = current_user.profile
+    end
   end
 
 end

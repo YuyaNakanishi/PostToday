@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: 'fashions#index'
   resources :fashions
 
+  resource :profile ,only: [:show,:edit,:update]
 end
 
