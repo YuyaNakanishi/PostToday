@@ -28,6 +28,16 @@ class FashionsController < ApplicationController
     @description = @fashion.description
   end
 
+  def edit
+    @fashion = current_user.fashions.find(params[:id])
+  end
+
+  def update
+    @fashion = current_user.fashions.find(params[:id])
+    @fashion.update(fashion_params)
+    redirect_to fashion_path(@fashion),notice:"投稿を変更しました"    
+  end
+
   def destroy
     @fashion = current_user.fashions.find(params[:id])
     @fashion.destroy!
