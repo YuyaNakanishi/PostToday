@@ -9,7 +9,38 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=davice-width, initial-scale=1.0">
   </head>
-  
+  <header class="header">
+  <% if user_signed_in? %>
+    <div class="dropdown">  
+      <div class="avatar">
+        <%= image_tag 'avatar.png' ,:size => '50x50' %>
+      <div class="dropdown_content">
+
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      </div>
+      </div>  
+        <% else %>
+      <div class="dropdown">
+        <div class="avatar">
+            <%= image_tag 'avatar.png' ,:size => '50x50' %>
+          <div class="dropdown_content">
+            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "ログイン", user_session_path %>
+          </div>
+        </div>
+      </div>    
+      <% end %> 
+    </div>
+
+    <div class="container">
+      <%= link_to root_path,class:"link_path" do %>
+      <h2>PostToday</h2>
+      <% end %>
+    </div>
+
+
+    <div class="line"></div>
+  </header>
 
   <body>
     <%= yield %>
