@@ -20,7 +20,7 @@
     font-size: 20px;
     font-weight: bold;
     padding: 0px 15px;
-     
+    
     &_name {
       font-size: 15px;
       padding-top: 8px;
@@ -39,4 +39,14 @@
   background: black;
   opacity: 0.5;
   margin: 15px 0;
+}
+
+.index_avatar {
+  padding-left: 20px;
+  & img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+  }
+
 }
