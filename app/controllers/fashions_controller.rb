@@ -17,6 +17,17 @@ class FashionsController < ApplicationController
     end
   end
 
+  def show
+    @fashion = Fashion.find(params[:id])
+    @name = @fashion.name
+
+    @tops = @fashion.tops
+    @pants = @fashion.pants
+    @shoes = @fashion.shoes
+    @other = @fashion.other
+    @description = @fashion.description
+  end
+
 
 
   private
