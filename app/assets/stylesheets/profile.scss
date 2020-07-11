@@ -1,0 +1,38 @@
+.profile_avatar {
+  padding: 20px 20px;
+  float: left;
+}
+
+.profile_content {
+  position: relative;
+  padding: 0 20px;
+}
+
+.profile_name {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.profile_introduction {
+  font-size: 18px;
+}
+
+.profile_avatar img{
+  border-radius: 100px;
+  border: none;
+  height: 70px;
+  width: 70px;
+}
+
+.profile_update {
+  text-decoration: none;
+  color: black;
+}
+
+.profile_line {
+  height: 1px;
+  background: black;
+  opacity: 0.5;
+  margin-top: 80px;
+}
