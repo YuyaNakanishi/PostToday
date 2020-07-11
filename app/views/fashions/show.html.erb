@@ -4,7 +4,7 @@
   <% end %>
   <div class="article">
     <div class="article_name"><%= @name %><br></div>
-    <div class="article_image"><%= image_tag 'araki_yuko.jpg' %><br></div>
+    <div class="article_image"><%= image_tag(@image) if @image.attached? %><br></div>
     <div class="article_content">
   <div class="dropdown">  
     <%= image_tag 'dot.png' ,class:"dot" %>
