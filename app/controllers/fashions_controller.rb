@@ -20,12 +20,18 @@ class FashionsController < ApplicationController
   def show
     @fashion = Fashion.find(params[:id])
     @name = @fashion.name
-
+    @image = @fashion.image
     @tops = @fashion.tops
     @pants = @fashion.pants
     @shoes = @fashion.shoes
     @other = @fashion.other
     @description = @fashion.description
+  end
+
+  def destroy
+    @fashion = current_user.fashions.find(params[:id])
+    @fashion.destroy!
+    redirect_to root_path,notice:"投稿を消去しました"
   end
 
 
