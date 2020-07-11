@@ -1,4 +1,35 @@
-<h2>index</h2>
-nakanishi
-中西
-nankanishi
+<div class="container">
+  <% if user_signed_in? %>
+    <% if flash[:notice] %>
+      <p class="flash"><%= flash[:notice] %></p>
+    <% end %>
+  <% @fashions.each do |f| %>
+    <%= link_to article_path(f),class:"link_path" do %> 
+      <div class="article_name"><%= f.name %><br></div>
+      <div class="article_image"><%= image_tag(f.image) if f.image.attached? %><br></div>
+      <div class="article_content">
+        <div class="article_content_name">Tops</div>
+        <%= f.tops %><br>
+        <div class="article_content_name">Pants</div>
+        <%= f.pants %><br>
+        <div class="article_content_name">Shoes</div>
+        <%= f.shoes %><br>
+        <div class="article_content_name">Other</div>
+        <%= f.other %><br>
+        <div class="article_content_name">Description</div>
+        <%= f.description %><br>
+        <div class="card_line"></div>
+      </div>  
+    <% end %>  
+    </div>
+  <% end %>
+  
+  <div class="post_btn">
+
+    <%= image_tag '鉛筆ボタン.png' %>
+
+  </div>
+  <% else %>
+   <h1>Log inしてください</h1>
+  <% end %>
+</div>
