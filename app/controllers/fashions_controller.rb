@@ -28,6 +28,8 @@ class FashionsController < ApplicationController
     @shoes = @fashion.shoes
     @other = @fashion.other
     @description = @fashion.description
+
+    @comments = Comment.all
   end
 
   def edit
@@ -67,4 +69,7 @@ class FashionsController < ApplicationController
     end
   end
 
+  def comment
+
+  end
 end

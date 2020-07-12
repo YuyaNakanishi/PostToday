@@ -34,4 +34,15 @@
   <% else %>
     <h2>Loginしてください</h2>
   <% end %>
+
+  <h2>Comment</h2>
+
+  <% @comments.each do |f| %>
+    <%= f.comment %>
+  <% end %>
+
+
+    <%= link_to new_fashion_comment_path(params[:id]),class:"link_path" do %> 
+      <h4>Comment</h4>
+    <% end %>
 </div>

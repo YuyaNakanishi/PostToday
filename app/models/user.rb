@@ -7,6 +7,6 @@ class User < ApplicationRecord
 has_many :fashions, dependent: :destroy
 has_one :profile, dependent: :destroy
 
-
+has_many :comments, dependent: :destroy
 
 end
