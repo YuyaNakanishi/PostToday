@@ -5,10 +5,9 @@ class  CommentsController < ApplicationController
   end
 
   def create
-    show = current_user.comments.find(params[:fashion_id])
     @comment = current_user.comments.build(comment_params)
     if @comment.save!
-      redirect_to fashion_path(show), notice:"コメントしました！"
+      redirect_to fashion_path(params[:fashion_id]), notice:"コメントしました！"
     else
       flash.now[:error] = "コメントできませんでした"
       render :new

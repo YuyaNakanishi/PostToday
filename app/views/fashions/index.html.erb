@@ -13,7 +13,7 @@
           <% if current_user.profile&.avatar&.attached? %>      
               <%= image_tag(@profile.avatar) if @profile.avatar.attached? %>
             <div><%= @profile.nickname %></div>
-            <% else %>
+          <% else %>
             <%= image_tag 'avatar.png' ,:size => '50x50' %>
           <% end %> 
       </div>  
