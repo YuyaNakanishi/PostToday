@@ -29,7 +29,7 @@ class FashionsController < ApplicationController
     @other = @fashion.other
     @description = @fashion.description
 
-    @comments = Comment.all
+    @comments = @fashion.comments
   end
 
   def edit
@@ -63,13 +63,13 @@ class FashionsController < ApplicationController
       :image)
   end
 
+  
+
   def profile
     if user_signed_in?
       @profile = current_user.profile
     end
   end
 
-  def comment
 
-  end
 end
