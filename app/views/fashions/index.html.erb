@@ -16,6 +16,11 @@
           <% else %>
             <%= image_tag 'avatar.png' ,:size => '50x50' %>
           <% end %> 
+            <div class="index_heart">
+              <%= link_to fashion_likes_path(@fashions), date: {method: 'post'} do %>
+                heart
+              <% end %>
+            </div>
       </div>  
 
       <div class="article_content">
