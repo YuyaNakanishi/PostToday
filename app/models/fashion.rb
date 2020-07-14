@@ -3,5 +3,6 @@ class Fashion < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
 
   has_one_attached :image
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
