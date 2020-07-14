@@ -17,7 +17,7 @@
             <%= image_tag 'avatar.png' ,:size => '50x50' %>
           <% end %> 
             <div class="index_heart">
-              <%= link_to fashion_likes_path(@fashions), date: {method: 'post'} do %>
+              <%= link_to fashion_like_path(@fashions), date: {method: 'post'} do %>
                 heart
               <% end %>
             </div>
