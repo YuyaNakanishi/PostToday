@@ -71,5 +71,4 @@ class FashionsController < ApplicationController
     end
   end
 
-
 end

@@ -16,7 +16,11 @@
     </div>
   <% end %>  
   </div>  
-  
+  <div class="index_heart">
+    <%= link_to fashion_like_path(@fashion), {controller: "likes", action: "create"}, method: :post do %>
+      heart
+    <% end %>  
+  </div>  
       <div class="article_content_name">Tops</div>
         <%= @tops %><br>
       <div class="article_content_name">Pants</div>

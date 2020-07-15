@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root to: 'fashions#index'
   resources :fashions do
     resources :comments, only:[:new,:create]
-    
-    resources :likes, only: [:create]
+      resource :like, only: [:create]
   end
 
   resource :profile, only: [:show,:edit,:update]
