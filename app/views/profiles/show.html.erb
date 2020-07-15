@@ -28,6 +28,8 @@
   </div>
   <% end %>
 
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
   <div class="profile_line"></div>
 
   <% current_user.fashions.each do |f| %>

@@ -7,8 +7,13 @@ class User < ApplicationRecord
 has_many :fashions, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_many :likes, dependent: :destroy
+has_many :favorite_fashions, through: :likes, source: :fashion
 
 has_one :profile, dependent: :destroy
+
+def has_liked?(fashion)
+  likes.exists?(fashion_id: fashion.id)
+end
 
 
 

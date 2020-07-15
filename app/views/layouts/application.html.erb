@@ -19,8 +19,8 @@
         <%= image_tag 'avatar.png' ,:size => '50x50' %>
       <% end %>  
       <div class="dropdown_content">
-        <%= link_to "Profile", profile_path %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <%= link_to "プロフィール", profile_path %>
+        <%= link_to "お気に入り一覧", favorites_path %>
       </div>
       </div>  
         <% else %>

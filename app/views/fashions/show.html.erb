@@ -16,9 +16,18 @@
     </div>
   <% end %>  
   </div>  
-  <div class="index_heart">
-    <%= link_to fashion_like_path(@fashion), {controller: "likes", action: "create"}, method: :post do %>
-      heart
+  
+  <div class="heart">
+    <% if current_user.has_liked?(@fashion) %>
+        <%= link_to fashion_like_path(@fashion), method: :delete do %>
+          <%= image_tag 'heart-active.svg' %>
+        <% end %>  
+        <span><%= @fashion.like_count %></span>
+    <% else %>
+        <%= link_to fashion_like_path(@fashion), method: :post do %>
+          <%= image_tag 'heart.svg' %> 
+      <% end %>  
+        <span><%= @fashion.like_count %></span>
     <% end %>  
   </div>  
       <div class="article_content_name">Tops</div>
