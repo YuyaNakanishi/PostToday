@@ -6,6 +6,8 @@ class Fashion < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  has_rich_text :other
+
   def like_count
     likes.count
   end
