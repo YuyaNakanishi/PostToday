@@ -31,6 +31,7 @@
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
   <div class="profile_line"></div>
+  <h2>自分の投稿一覧</h2>
 
   <% current_user.fashions.each do |f| %>
     <%= link_to fashion_path(f),class:"link_path" do %> 
@@ -38,3 +39,5 @@
       <div class="article_image"><%= image_tag(f.image) if f.image.attached? %><br></div>
     <% end %>   
   <% end %>
+</div>
+</div>
