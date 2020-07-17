@@ -1,5 +1,7 @@
 class FashionsController < ApplicationController
-  before_action :profile 
+  before_action :profile
+  before_action :profile_layout
+  before_action :profile_show, only: [:show]
 
   def index
     @fashions = Fashion.all
@@ -68,6 +70,20 @@ class FashionsController < ApplicationController
   def profile
     if user_signed_in?
       @profile = current_user.profile
+    end
+  end
+
+  def profile_layout
+    if user_signed_in?
+      @profile_layout = current_user.profile
+    end
+  end
+
+
+  def profile_show
+    if user_signed_in?
+      fashion = Fashion.find(params[:id])
+      @profile = fashion.user.profile
     end
   end
 
