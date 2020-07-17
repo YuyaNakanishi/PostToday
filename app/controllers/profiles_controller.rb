@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :profile_layout
 
   def show
     @profile = current_user.profile
@@ -22,6 +23,13 @@ class ProfilesController < ApplicationController
       :nickname,
       :introduction,
       :avatar)
+  end
+
+
+  def profile_layout
+    if user_signed_in?
+      @profile_layout = current_user.profile
+    end
   end
 
 end

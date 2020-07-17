@@ -17,6 +17,17 @@
   <% end %>  
   </div>  
   
+  <div class="index_avatar">
+    <%= link_to account_path(params[:id]) do %>
+      <% if current_user.profile&.avatar&.attached? %>      
+          <%= image_tag(@profile.avatar) if @profile.avatar.attached? %>
+        <div><%= @profile.nickname %></div>
+      <% else %>
+        <%= image_tag 'avatar.png' ,:size => '50x50' %>
+      <% end %> 
+    <% end %>
+  </div> 
+
   <div class="heart">
     <% if current_user.has_liked?(@fashion) %>
         <%= link_to fashion_like_path(@fashion), method: :delete do %>
