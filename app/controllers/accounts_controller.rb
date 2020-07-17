@@ -4,8 +4,8 @@ class AccountsController < ApplicationController
 
   def show
     fashion = Fashion.find(params[:id])
-    @profile = fashion.user.profile
     @user = fashion.user
+    @profile = @user.profile
     if @user == current_user
       redirect_to profile_path
     end
