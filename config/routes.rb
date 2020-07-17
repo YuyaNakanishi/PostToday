@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'fashions#index'
 
+  resource :timeline, only:[:show]
+
   resources :fashions do
     resources :comments, only:[:new,:create]
       resource :like, only: [:create, :destroy]
