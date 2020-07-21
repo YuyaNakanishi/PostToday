@@ -7,16 +7,16 @@
     <%= image_tag 'avatar.png' ,:size => '50x50' %>
   <% end %>
   </div>
-  
+
   <% if current_user.profile&.avatar&.attached? %>   
     <div class="profile_content">
-    <div class="profile_name">
-      <%= @profile.nickname %>
-    </div>
-    
-    <div class="profile_introduction">
-      <%= @profile.introduction%>
-    </div>
+      <div class="profile_name">
+        <%= @profile.nickname %>
+      </div>
+      
+      <div class="profile_introduction">
+        <%= @profile.introduction%>
+      </div>
 
     <%= link_to edit_profile_path(current_user) do %>     
       <%= image_tag 'profile.png',:size => '150x30' ,class:"profile_update"%>
@@ -31,7 +31,7 @@
   
 
   <div class="profile_line"></div>
-  <h2>自分の投稿一覧</h2>
+  <h2 class="currentuser_article">自分の投稿一覧</h2>
 
   <% current_user.fashions.each do |f| %>
     <%= link_to fashion_path(f),class:"link_path" do %> 

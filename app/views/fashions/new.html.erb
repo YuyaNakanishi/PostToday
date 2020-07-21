@@ -1,5 +1,12 @@
 <div class="container">
   <h2>New Fashion</h2>
+  <% if @fashion.errors.any? %>
+      <% @fashion.errors.full_messages.each do |message| %>
+        <div class="errors"><%= message %></div>
+      <% end %>
+  <% end %>
+
+
   <%= form_with(model:@fashion ,url: fashions_path ,method: 'post' ,local: true) do |f| %>
     <%# image %>
     <div>
@@ -61,7 +68,7 @@
     </div>
 
     <div class="field">
-      <%= f.text_area :description, class: "text_area" %>
+      <%= f.rich_text_area :description, class: "text_area" %>
     </div>
 <%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
   <%# Submit %>

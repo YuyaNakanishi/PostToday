@@ -1,20 +1,37 @@
-.comment {
-  &_label {
-    font-weight: bold;
-  }
-
-  &_text_area {
-    width: 350px;
-    height: 120px;
-    left: 26px;
-    top: 190px;
-    background: #F4F4F4;
-    border-radius: 10px;
-    border: none;
-
-  }
+.new_comment {
+  background: #FFFFFF;
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 100%;
+  height: 160px;
+  text-align: center;
+  border-radius: 10px;
 }
 
+.user_comment {
+  padding-top: 65px;
+  font-weight: bold;
+  
+}
 
+.comment {
+  margin-bottom: 15px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background: #F4F4F4;
 
+  &_description {
+    
+  }
 
+}
+
+.comment_link {
+  text-decoration: none;
+  color: black;
+  top: 50px;
+}
+
+.comment_title {
+  padding-left: 10px;
+}

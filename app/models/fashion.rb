@@ -7,6 +7,9 @@ class Fashion < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_rich_text :other
+  has_rich_text :description
+
+  validates :image, presence: true
 
   def like_count
     likes.count

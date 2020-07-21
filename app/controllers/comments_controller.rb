@@ -1,5 +1,7 @@
 class  CommentsController < ApplicationController
   before_action :profile
+  before_action :profile_layout
+
   def new
     @comment = current_user.comments.build
   end
@@ -27,5 +29,12 @@ class  CommentsController < ApplicationController
       @profile = current_user.profile
     end
   end
+
+  def profile_layout
+    if user_signed_in?
+      @profile_layout = current_user.profile
+    end
+  end
+
 end
 
