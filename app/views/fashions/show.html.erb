@@ -59,14 +59,21 @@
     <h2>Loginしてください</h2>
   <% end %>
 
-  <h2>Comments</h2>
+  <h2 class="comment_title">Comments</h2>
 
-  <% @comments.each do |f| %>
-    <%= f.comment %><br>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+        <div class="comment_description">    
+          <p><%= comment.comment %><br></p>
+        </div>
+    </div>  
+  <% end %>
+
+  <%= link_to new_fashion_comment_path(params[:id]) , class:"comment_link" do %>
+    <div class="new_comment">
+      <div class="user_comment">+ Add new comment</div>
+    </div>
   <% end %>
 
 
-    <%= link_to new_fashion_comment_path(params[:id]),class:"link_path" do %> 
-      <h4>Comment</h4>
-    <% end %>
 </div>

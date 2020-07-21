@@ -1,0 +1,28 @@
+.top {
+  background-color: #FAF6F7;
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+  
+  &_text {
+    float: left;
+  }
+
+  &_text2 {
+    float: right;
+  }
+
+  &_image {
+    padding: 20px 0 2px 0 ;
+    text-align: center;
+  }
+  
+}
+
+.second_image {
+  text-align: center;
+
+  &_content {
+    display: inline-block;
+
+  }
+}
+

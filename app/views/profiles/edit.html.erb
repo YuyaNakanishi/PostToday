@@ -1,4 +1,11 @@
 <div class="container">
+
+  <% if @profile.errors.any? %>
+      <% @profile.errors.full_messages.each do |message| %>
+        <div class="errors"><%= message %></div>
+      <% end %>
+  <% end %>
+
   <%= form_with(model:@profile ,url: profile_path ,method: 'put' ,local: true) do |f| %>
     <%# image %>
     <div>
@@ -24,7 +31,7 @@
     </div>
 
     <div class="field">
-      <%= f.text_area :introduction ,class: "text" %>
+      <%= f.rich_text_area :introduction ,class: "text" %>
     </div>
 
 <%# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
