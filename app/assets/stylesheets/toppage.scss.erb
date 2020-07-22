@@ -1,0 +1,51 @@
+.top {
+  background-color: #FAF6F7;
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+  
+
+  &_text {
+    font-size: 20px;
+    font-weight: bold;
+    background-image: url(<%= ('background_image.png') %>);
+    background-size: cover;
+    color: white;
+
+    &_sub {
+      color: white;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+
+
+  &_image {
+    padding: 0 0 2px 0 ;
+    text-align: center;
+    
+  }
+  
+}
+
+.second_image {
+  text-align: center;
+  
+
+  &_content {
+    display: inline-block;
+  }
+}
+
+.background {
+background-image: url(<%= ('background_image.png') %>);
+}
+
+.sign_up {
+  padding: 0 0 5px 20px; 
+  font-weight: bold;  
+  font-size: 20px;
+}
+
+.sign_up p {
+  color: black;
+  text-decoration: none;  
+}
