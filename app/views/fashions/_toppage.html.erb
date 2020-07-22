@@ -1,13 +1,23 @@
 <div class="top">
-  <div class="background">
-    <div class="top_text">
-      <h3>　自分のファッションを<br>　　　　　　投稿しよう</h3>
+  <div class="container">
+    <div class="background">
+      <p class="top_text">
+      　<br>
+        　<br>　自分のファッションを<br>　　　　　　投稿しよう！<br>
+        　　<br>
+        　　　　　みんなのファッションを<br>
+        　　　　　　　　　　　見てみよう！<br>
+        　<br>
+        　<br>
+        　<br>
+        <p class="top_text_sub">
+          このアプリは自分のコーディネートを投稿し、<br>
+          ユーザー同士で「今日」のファッションを<br>見ることが出来るアプリです<br>
+          　　<br>
+        </p>
+      </p>
+    
     </div>
-
-    <div class="top_text2">
-      <h3>みんなのファッションを　　　<br>　　　　　　　見てみよう</h3>
-    </div>
-  </div>
 
   <div class="top_image">
     <%= image_tag  "img3.0.png", :size => '340x575' ,class:'posttoday' %>
@@ -24,11 +34,17 @@
   </div>
 
   <div class="sign_up">
-    <h3>新規登録はこちらから</h3>
+    <%= link_to  new_user_registration_path do %>
+      <p>新規登録はこちらから</p>
+    <% end %>
   </div>
 
   <div class="sign_up">
-    <h3>ログインはこちらから</h3>
+    <%= link_to  user_session_path do %>
+      <p>ログインはこちらから</p>
+    <% end %>
   </div>
 </div>
+</div>
+
 
