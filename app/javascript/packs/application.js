@@ -18,3 +18,13 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+import $ from 'jquery'
+import axios from 'axios'
+
+document.addEventListener('turbolinks:load', () => {
+  axios.get('/fashions/1/like')
+    .then((response) => {
+      console.log(response)
+      })
+  })

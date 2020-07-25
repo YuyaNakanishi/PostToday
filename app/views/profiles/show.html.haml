@@ -1,0 +1,28 @@
+.container
+  .profile_avatar
+    - if current_user.profile&.avatar&.attached?
+      = image_tag(@profile.avatar)
+    - else
+      = image_tag 'avatar.png' ,:size => '50x50'
+  - if current_user.profile&.avatar&.attached?
+    .profile_content
+      .profile_name
+        = @profile.nickname
+      .profile_introduction
+        = @profile.introduction
+      = link_to edit_profile_path(current_user) do
+        = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
+      - else
+        = link_to edit_profile_path(current_user) do
+          = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
+  .profile_line
+  %h2.currentuser_article 自分の投稿一覧
+  - current_user.fashions.each do |f|
+    = link_to fashion_path(f),class:"link_path" do
+      .article_title
+        .article_name
+          = f.name
+          %br/
+        .article_image
+          = image_tag(f.image) if f.image.attached?
+          %br/

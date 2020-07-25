@@ -1,0 +1,19 @@
+.container
+  - if @profile.errors.any?
+    - @profile.errors.full_messages.each do |message|
+      .errors= message
+  = form_with(model:@profile ,url: profile_path ,method: 'put' ,local: true) do |f|
+    %div
+      = f.label :avatar, 'avatar', class:"label"
+    .field
+      = f.file_field :avatar
+    %div
+      = f.label :nickname, 'NickName', class:"label"
+    .field
+      = f.text_field :nickname ,class: "text"
+    %div
+      = f.label :introduction, '紹介文', class:"label"
+    .field
+      = f.rich_text_area :introduction ,class: "text"
+    %div
+      = f.submit '保存', class: "btn"
