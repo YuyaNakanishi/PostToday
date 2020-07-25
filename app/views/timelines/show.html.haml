@@ -1,0 +1,32 @@
+.container
+  .tabs
+    %div{:class => "#{'active' if current_page?(root_path)} tabs_item"}
+      = link_to "新着記事一覧",root_path
+    %div{:class => "#{'active' if current_page?(timeline_path)} tabs_item"}
+      = link_to "タイムライン",timeline_path
+  - @fashions.each do |f|
+    = link_to fashion_path(f),class:"link_path" do
+      .article_title
+        .article_name
+          = f.name
+          %br/
+        .article_image
+          = image_tag(f.image) if f.image.attached?
+          %br/
+      .article_content
+        .article_content_name Tops
+        = f.tops
+        %br/
+        .article_content_name Pants
+        = f.pants
+        %br/
+        .article_content_name Shoes
+        = f.shoes
+        %br/
+        .article_content_name Other
+        = f.other
+        %br/
+        .article_content_name Description
+        = f.description
+        %br/
+        .card_line

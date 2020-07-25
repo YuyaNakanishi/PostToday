@@ -1,0 +1,62 @@
+.container#fashion-show{data: {fashion_id: @fashion.id}}
+- if user_signed_in?
+  - if flash[:notice]
+    %p.flash= flash[:notice]
+  .article
+    .article_name
+      = @name
+      %br/
+      .article_image
+        = image_tag(@image) if @image.attached?
+        %br/
+        .article_content
+          .dropdown
+            - if current_user.fashions.exists?(id: @fashion.id)
+              = image_tag 'dot.png' ,class:dot
+              .dropdown_content
+                = link_to Edit, edit_fashion_path(params[:id])
+                = link_to delete, fashion_path(params[:id]), data: {method: 'delete', confirm:本当に削除しても良いですか？}
+          .index_avatar
+            = link_to account_path(params[:id]) do
+              - if current_user.profile.avatar.attached?
+                = image_tag(@profile.avatar) if @profile.avatar.attached?
+                %div= @profile.nickname
+              - else
+                = image_tag 'avatar.png' ,:size = '50x50'
+          .heart
+            - if current_user.has_liked?(@fashion)
+              = link_to fashion_like_path(@fashion), method: :delete do
+                = image_tag 'heart-active.svg'
+              %span= @fashion.like_count
+            - else
+              = link_to fashion_like_path(@fashion), method: :post do
+                = image_tag 'heart.svg'
+              %span= @fashion.like_count
+          .article_content_name Tops
+          = @tops
+          %br
+            .article_content_name Pants
+            = @pants
+            %br
+              .article_content_name Shoes
+              = @shoes
+              %br
+                .article_content_name Other
+                = @other
+                %br
+                  .article_content_name Description
+                  = @description
+                  %br
+                    .line
+              - else
+                %h2 Login&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
+              %h2.comment_title Comments
+              - @comments.each do |comment|
+                .comment
+                  .comment_description
+                    %p
+                      = comment.comment
+                      %br/
+                = link_to new_fashion_comment_path(params[:id]) , class:comment_link do
+                  .new_comment
+                    .user_comment + Add new comment

@@ -1,5 +1,4 @@
-class 
-  sController < ApplicationController
+class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :profile 
   before_action :profile_layout
