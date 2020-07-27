@@ -1,4 +1,7 @@
 .container
+- if user_signed_in?
+    - if flash[:notice]
+      %p.flash= flash[:notice]
   .profile_avatar
     - if current_user.profile&.avatar&.attached?
       = image_tag(@profile.avatar)

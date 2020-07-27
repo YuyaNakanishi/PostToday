@@ -1,4 +1,7 @@
 .container
+  - if user_signed_in?
+    - if flash[:notice]
+      %p.flash= flash[:notice]
   .profile_avatar
     - if current_user.profile&.avatar&.attached?
       = image_tag(@profile.avatar)
@@ -12,9 +15,9 @@
         = @profile.introduction
       = link_to edit_profile_path(current_user) do
         = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
-      - else
-        = link_to edit_profile_path(current_user) do
-          = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
+  - else
+    = link_to edit_profile_path(current_user) do
+      = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
   .profile_line
   %h2.currentuser_article 自分の投稿一覧
   - current_user.fashions.each do |f|

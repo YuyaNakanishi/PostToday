@@ -11,25 +11,28 @@
   %body
     %header.header
       - if user_signed_in?
-      .dropdown
-        .avatar
-          - if current_user.profile&.avatar&.attached?
-            = image_tag(@profile_layout.avatar) if @profile.avatar.attached?
-          - else
-            = image_tag 'avatar.png' ,:size => '50x50'
-          .dropdown_content
-            = link_to "プロフィール", profile_path
-            = link_to "お気に入り一覧", favorites_path
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-
+        .dropdown
+          .avatar
+            - if current_user.profile&.avatar&.attached?
+              = image_tag(@profile_layout.avatar) if @profile.avatar.attached?
+            - else
+              = image_tag 'avatar.png' ,:size => '50x50'
+            .dropdown_content
+              = link_to "プロフィール", profile_path
+              = link_to "お気に入り一覧", favorites_path
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+        = link_to root_path,class:"link_path" do
+          %h2 PostToday
+          .line  
+      - else
         .dropdown
           .avatar
             = image_tag 'avatar.png' ,:size => '50x50'
             .dropdown_content
               = link_to "新規登録", new_user_registration_path
               = link_to "ログイン", user_session_path
-      .container
-        = link_to root_path,class:"link_path" do
-          %h2 PostToday
+        .container
+          = link_to root_path,class:"link_path" do
+            %h2 PostToday
         .line
-      = yield
+    = yield

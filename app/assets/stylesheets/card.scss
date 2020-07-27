@@ -28,7 +28,7 @@
     
     &_name {
       font-size: 15px;
-      padding-top: 8px;
+      padding-top: 15px;
       background:linear-gradient(transparent 70%, #FFFF00 0%);
       width: 100px;
     }
@@ -47,11 +47,29 @@
 }
 
 .index_avatar {
-  padding-left: 20px;
+  float: left;
+  padding:0 30px 20px 0;
+
+  & div{
+    color: black;
+  }
+
   & img {
     height: 40px;
     width: 40px;
     border-radius: 100px;
+
   }
 
+}
+
+.like_count {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 0 0 15px;
+}
+
+.heart {
+  float: right;
+  padding: 5px 15px 0 0;
 }
