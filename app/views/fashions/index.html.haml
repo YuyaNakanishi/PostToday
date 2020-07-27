@@ -17,6 +17,10 @@
             .article_image
               = image_tag(f.image) if f.image.attached?
               %br/
+          .like_count
+            いいね👍
+            =f.like_count
+
           .article_content
             .article_content_name Tops
             = f.tops
@@ -38,3 +42,4 @@
         = link_to new_fashion_path, class:"link_path" do
           = image_tag  "鉛筆ボタン.png"
   - else
+    = render 'toppage'

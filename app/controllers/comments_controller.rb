@@ -6,16 +6,18 @@ class  CommentsController < ApplicationController
     @comment = current_user.comments.build
   end
 
-  def create
-    @comment = current_user.comments.build(comment_params)
-    if @comment.save!
-      redirect_to fashion_path(params[:fashion_id]), notice:"コメントしました！"
-    else
-      flash.now[:error] = "コメントできませんでした"
-      render :new
-    end
+  def index
+    fashion = Fashion.find(params[:fashion_id])
+    comments = fashion.comments
+    render json: comments
   end
 
+  def create
+    @comment = current_user.comments.build(comment_params)
+    @comment.save!
+
+    render json: @comment
+  end
 
   private
 
@@ -37,4 +39,3 @@ class  CommentsController < ApplicationController
   end
 
 end
-
