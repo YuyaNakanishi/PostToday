@@ -26,7 +26,7 @@ document.addEventListener('turbolinks:load', () => {
     if (!comment){
       window.alert('コメントを入力してください')
     } else {
-      axios.post(`/fashions/${fashionId}/comments`,{
+      axios.post(`/api/fashions/${fashionId}/comments`,{
         comment: {comment: comment}
     })
         .then((res) => {
@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   })
 
 
-  axios.get(`/fashions/${fashionId}/comments`)
+  axios.get(`/api/fashions/${fashionId}/comments`)
     .then((response) => {
       const comments = response.data
       comments.forEach((comment) => {
@@ -48,7 +48,7 @@ document.addEventListener('turbolinks:load', () => {
 
   handleCommentForm()
 
-  axios.get(`/fashions/${fashionId}/like`)
+  axios.get(`/api/fashions/${fashionId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
       if (hasLiked){
@@ -59,7 +59,7 @@ document.addEventListener('turbolinks:load', () => {
     })
 
     $('.inactive-heart').on(`click`, () => {
-      axios.post(`/fashions/${fashionId}/like`)
+      axios.post(`/api/fashions/${fashionId}/like`)
         .then((response) => {
           if (response.data.status === 'ok') {
             $('.active-heart').removeClass('hidden')
@@ -73,7 +73,7 @@ document.addEventListener('turbolinks:load', () => {
     })
     
     $('.active-heart').on(`click`, () => {
-      axios.delete(`/fashions/${fashionId}/like`)
+      axios.delete(`/api/fashions/${fashionId}/like`)
         .then((response) => {
           if (response.data.status === 'ok') {
             $('.active-heart').addClass('hidden')

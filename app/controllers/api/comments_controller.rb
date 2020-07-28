@@ -1,10 +1,6 @@
-class  CommentsController < ApplicationController
+class  Api::CommentsController < Api::ApplicationController
   before_action :profile
   before_action :profile_layout
-
-  def new
-    @comment = current_user.comments.build
-  end
 
   def index
     fashion = Fashion.find(params[:fashion_id])
