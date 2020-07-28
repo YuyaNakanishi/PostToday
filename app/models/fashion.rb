@@ -10,6 +10,7 @@ class Fashion < ApplicationRecord
   has_rich_text :description
 
   validates :image, presence: true
+  validates :name, presence: true
 
   def like_count
     likes.count
