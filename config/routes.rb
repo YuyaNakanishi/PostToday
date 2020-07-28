@@ -5,10 +5,7 @@ Rails.application.routes.draw do
 
   resource :timeline, only:[:show]
 
-  resources :fashions do
-    resources :comments, only:[:index,:new,:create]
-      resource :like, only: [:show, :create, :destroy]
-  end
+  resources :fashions 
 
   resources :accounts, only: [:show] do
     resources :follows, only: [:create]
@@ -18,6 +15,14 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show,:edit,:update]
   resources :favorites, only: [:index]
+
+  namespace :api, defaults: {format: :json} do
+    scope '/fashions/:fashion_id' do
+      resources :comments, only:[:index,:create]
+      resource :like, only: [:show, :create, :destroy]
+    end
+  end
+
 end
 
 
