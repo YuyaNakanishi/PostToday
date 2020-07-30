@@ -1,6 +1,6 @@
 class FashionsController < ApplicationController
   before_action :profile
-  before_action :profile_layout
+  before_action :loginuser_profile
   before_action :profile_show, only: [:show]
 
   def index
@@ -14,7 +14,7 @@ class FashionsController < ApplicationController
   def create
     @fashion = current_user.fashions.build(fashion_params)
     if @fashion.save
-      redirect_to root_path,notice: "投稿しました"
+      redirect_to root_path,notice: "投稿しました！"
     else
       flash.now[:error] = "投稿できませんでした"
       render :new
@@ -23,6 +23,7 @@ class FashionsController < ApplicationController
 
   def show
     @fashion = Fashion.find(params[:id])
+    @fashion_user = @fashion.user
     @name = @fashion.name
     @image = @fashion.image
     @tops = @fashion.tops
@@ -39,7 +40,7 @@ class FashionsController < ApplicationController
   def update
     @fashion = current_user.fashions.find(params[:id])
     @fashion.update(fashion_params)
-    redirect_to fashion_path(@fashion),notice:"投稿を変更しました"    
+    redirect_to fashion_path(@fashion),notice:"投稿を変更しました！"    
   end
 
   def destroy
@@ -63,17 +64,15 @@ class FashionsController < ApplicationController
       :image)
   end
 
-  
-
   def profile
     if user_signed_in?
       @profile = current_user.profile
     end
   end
 
-  def profile_layout
+  def loginuser_profile
     if user_signed_in?
-      @profile_layout = current_user.profile
+      @loginuser_profile = current_user.profile
     end
   end
 

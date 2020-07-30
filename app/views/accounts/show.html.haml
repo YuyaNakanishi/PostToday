@@ -1,13 +1,11 @@
 .container
-- if user_signed_in?
-    - if flash[:notice]
-      %p.flash= flash[:notice]
   .profile_avatar
-    - if current_user.profile&.avatar&.attached?
+    - if @user.profile&.avatar&.attached?
       = image_tag(@profile.avatar)
     - else
       = image_tag 'avatar.png' ,:size => '50x50'
-  - if current_user.profile&.avatar&.attached?
+
+  - if @user.profile&.avatar&.attached?
     .profile_content
       .profile_name
         = @profile.nickname
@@ -16,28 +14,36 @@
       - if @user == current_user
         = link_to edit_profile_path(current_user) do
           = image_tag 'profile.png',:size => '150x30' ,class:"profile_update"
+
       - else
         - if current_user&.has_followed?(@user)
-          = link_to account_unfollows_path(@user), method: :post do
-            = image_tag 'unfollow.png',:size =>'105x35' ,class:"profile_update"
+          = link_to account_unfollows_path(@user), method: :post,class:"link_path" do
+            %p.unfollow_btn フォローをはずす
+            
         - else
-          = link_to account_follows_path(@user), method: :post do
-            = image_tag 'follow.png',:size =>'105x35' ,class:"profile_update"
-      - else
-        .profile_content
-          .profile_name
-            %h3 No Name
-          .profile_introduction
-            %h3 No introduction
-          .profile_line
-          %h2
-            = @profile.nickname
-            さんの投稿
-          - @user.fashions.each do |f|
-            = link_to fashion_path(f),class:"link_path" do
-              .article_name
-                = f.name
-                %br/
-              .article_image
-                = image_tag(f.image) if f.image.attached?
-                %br/
+          = link_to account_follows_path(@user), method: :post,class:"link_path" do
+            %p.follow_btn フォローする
+            
+  - else
+    .profile_content
+      .profile_name
+        %h3 No Name
+      .profile_introduction
+        %h3 No introduction
+  .profile_line
+  %h2
+    = @profile.nickname
+    さんの投稿
+  - @user.fashions.each do |f|
+    .article
+      .article_title
+        .article_name
+          = f.name
+          %br/
+        .article_image
+          = image_tag(f.image) if f.image.attached?
+          %br/
+      .like_count
+        いいね👍
+        =f.like_count
+      .card_line

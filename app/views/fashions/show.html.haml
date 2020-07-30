@@ -18,8 +18,8 @@
               = link_to "delete", fashion_path(params[:id]), data: {method: 'delete', confirm:"本当に削除しても良いですか？"}
         
         .index_avatar
-          = link_to account_path(params[:id]) do
-            - if current_user.profile&.avatar&.attached?
+          = link_to account_path(params[:id]) ,class:"link_path" do
+            - if @fashion_user.profile&.avatar&.attached?
               = image_tag(@profile.avatar) if @profile.avatar.attached?
               %div= @profile.nickname
             - else
@@ -57,7 +57,7 @@
       .user_comment
         コメントを追加
     .comment_text_area.hidden
-      = text_area_tag :comment_comment, '' ,class: 'text_area_comment'
+      = text_area_tag :comment_comment, '',placeholder: "コメントを入力" ,class: 'text_area_comment'
       .new_comment.add-comment-button
         .user_comment 
           コメントを追加

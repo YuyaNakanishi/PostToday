@@ -9,12 +9,13 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=davice-width, initial-scale=1.0", :name => "viewport"}/
   %body
+  .container
     %header.header
       - if user_signed_in?
         .dropdown
           .avatar
             - if current_user.profile&.avatar&.attached?
-              = image_tag(@profile_layout.avatar) if @profile.avatar.attached?
+              = image_tag(@loginuser_profile.avatar) if @profile.avatar.attached?
             - else
               = image_tag 'avatar.png' ,:size => '50x50'
             .dropdown_content

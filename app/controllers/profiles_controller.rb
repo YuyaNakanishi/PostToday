@@ -1,20 +1,25 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :profile_layout
+  before_action :profile
+  before_action :loginuser_profile
 
   def show
     @profile = current_user.profile
   end
 
   def edit
-    @profile = current_user.profile
     @profile = current_user.build_profile
   end
 
   def update
-    @profile = current_user.build_profile
-    @profile.update(profile_params)
-    redirect_to profile_path(@fashion),notice:"プロフィールを変更しました"
+    @profile = current_user.build_profile(profile_params)
+    @profile.assign_attributes(profile_params)
+    if @profile.save
+      redirect_to profile_path(@fashion),notice:"プロフィールを変更しました"
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
   end
 
   private
@@ -26,9 +31,15 @@ class ProfilesController < ApplicationController
   end
 
 
-  def profile_layout
+  def profile
     if user_signed_in?
-      @profile_layout = current_user.profile
+      @profile = current_user.profile
+    end
+  end
+
+  def loginuser_profile
+    if user_signed_in?
+      @loginuser_profile = current_user.profile
     end
   end
 

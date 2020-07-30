@@ -2,10 +2,17 @@
   %h2 お気に入りのFashion一覧
   - @fashions.each do |f|
     = link_to fashion_path(f),class:"link_path" do
-      .article_name
-        = f.name
-        %br/
-      .article_image
-        = image_tag(f.image) if f.image.attached?
-        %br/
+      .article
+        .article_title
+          .article_name
+            = f.name
+            %br/
+          .article_image
+            = image_tag(f.image) if f.image.attached?
+            %br/
+        .like_count
+          いいね👍
+          =f.like_count
       .card_line
+
+

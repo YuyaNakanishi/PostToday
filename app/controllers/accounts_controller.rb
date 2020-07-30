@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :profile
-  before_action :profile_layout
+  before_action :loginuser_profile
 
   def show
     fashion = Fashion.find(params[:id])
@@ -19,9 +19,9 @@ class AccountsController < ApplicationController
     end
   end
 
-  def profile_layout
+  def loginuser_profile
     if user_signed_in?
-      @profile_layout = current_user.profile
+      @loginuser_profile = current_user.profile
     end
   end
 
