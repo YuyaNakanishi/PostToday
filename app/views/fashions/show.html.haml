@@ -3,12 +3,13 @@
     - if flash[:notice]
       %p.flash= flash[:notice]
     .article
-      .article_name
-        = @name
-        %br/
-      .article_image
-        = image_tag(@image) if @image.attached?
-        %br/
+      .article_title
+        .article_name
+          = @name
+          %br/
+        .article_image
+          = image_tag(@image) if @image.attached?
+          %br/
       .article_content
         .dropdown
           - if current_user.fashions.exists?(id: @fashion.id)

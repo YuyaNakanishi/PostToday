@@ -3,3 +3,4 @@ class AddFashionIdToComments < ActiveRecord::Migration[6.0]
     add_reference :comments, :fashion
   end
 end
+
