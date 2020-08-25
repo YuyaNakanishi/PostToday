@@ -39,6 +39,9 @@
       .second_image_content
         = image_tag  "vans.jpg", :size => '168x217' ,class:'posttoday'
     .sign_up
+      = link_to homes_guest_sign_in_path, method: :post do
+        %p ゲストログイン
+    .sign_up
       = link_to  new_user_registration_path do
         %p 新規登録はこちらから
     .sign_up

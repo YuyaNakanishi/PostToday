@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :unfollows, only: [:create]
   end
 
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
 
   resource :profile, only: [:show,:edit,:update]
   resources :favorites, only: [:index]
